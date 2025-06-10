@@ -6,10 +6,12 @@ completed_todos = [] # Things I've finished (for satisfaction/tracking)
 
 #check if file (storage) exists.
 if File.exist?("todos.txt")
-    #TODO code here to load todos
-    File.read("todos.txt")
+    #load in the file and split by new lines, essentially removing them.
+    todos = File.read("todos.txt").split("\n").reject(&:empty?)
+    # remove # if you feel like you need to debug again: puts "DEBUG: loaded todos are: #{todos.inspect}"
 
 else
+    puts "file doesnt exist... creating file..."
     File.new("todos.txt","w") # create file if it doesnt exist. 
 end
 
@@ -95,7 +97,7 @@ loop do
             end
         end
     elsif choice == 5
-        #TODO put the code here to save todos
+        # write to the file
         File.write("todos.txt", todos.join("\n")) 
         File.write("completed_todos.txt", completed_todos.join("\n"))
         puts "to-do's saved!"

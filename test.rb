@@ -1,4 +1,4 @@
-# todo_item = gets.chomp
+# test todo_item = gets.chomp
 
 # puts "fuck you #{todo_item}!"
 
@@ -43,3 +43,37 @@
 # end
 
 # create_file("fart.txt")
+
+
+# my_list = File.readlines("todos.txt")
+
+# my_list.each do |index|
+
+
+# arrays methods help 
+
+todos = ["Learn Ruby", "", "Build app", ""]
+
+# .each - Just visit each item (doesn't change anything)
+todos.each do |todo|
+  puts todo  # Just prints them
+end
+# Returns: ["Learn Ruby", "", "Build app", ""] (unchanged)
+
+# .map - Transform each item into something new
+todos.map do |todo|
+  todo.upcase  # Make each one uppercase
+end
+# Returns: ["LEARN RUBY", "", "BUILD APP", ""]
+
+# .select - Keep items that match a condition  
+todos.select do |todo|
+  !todo.empty?  # Keep non-empty ones
+end
+# Returns: ["Learn Ruby", "Build app"] (empty ones removed)
+
+# .reject - Remove items that match a condition
+todos.reject do |todo|
+  todo.empty?  # Remove empty ones
+end
+# Returns: ["Learn Ruby", "Build app"] (same result as select, opposite logic)
